@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import {ChangeCurrencyButton} from './components/buttons/ChangeCurrencyButton';
 import './App.css';
+import { useCurrency } from './hooks/UseCurrency';
+import { useEditMode } from './hooks/UseEditMode';
+import { useFetch } from './hooks/UseFetch';
+import { QuoteResponse } from './library/Quotes';
+import { QuoteOfTheDay } from './components/QuoteOfTheDay';
 
-function App() {
+const App = () => {
+  const [price, currencyType, toggleCurrency] = useCurrency(327);
+  const editMode = useEditMode();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        <p className='unselectable'>{price} {currencyType}</p>
+        <ChangeCurrencyButton
+          onClick={toggleCurrency}
+        />
+        {
+          editMode ? 
+          <div>
+            <p>Edit mode</p>
+          </div> :
+          null
+        }
+        <QuoteOfTheDay/>
     </div>
   );
 }
