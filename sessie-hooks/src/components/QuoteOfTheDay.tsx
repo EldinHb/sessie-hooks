@@ -2,7 +2,7 @@ import React from 'react';
 import { useFetch } from '../hooks/UseFetch';
 import { QuoteResponse } from '../library/Quotes';
 
-export const QuoteOfTheDay = (props: QuoteOfTheDayProps) => {
+export const QuoteOfTheDay = () => {
     const [isLoading, quoteResponse, status] = useFetch<QuoteResponse>('https://quotes.rest/qod');
 
     return(
@@ -20,8 +20,4 @@ export const QuoteOfTheDay = (props: QuoteOfTheDayProps) => {
             }
         </div>
     );
-}
-
-export type QuoteOfTheDayProps = {
-    
 }

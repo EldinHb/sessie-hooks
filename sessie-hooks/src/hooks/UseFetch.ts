@@ -11,7 +11,6 @@ export const useFetch = <T>(url: string, execute = true) => {
             setTimeout( async () => {  
                 const response = await fetch(url);
                 if (response.ok) {
-    
                     const parsedData: T = JSON.parse(await response.text());
                     setData(parsedData);
                     setIsLoading(false);

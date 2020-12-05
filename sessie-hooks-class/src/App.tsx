@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { CurrencyType } from './Library/CurrencyType';
 import { NormalButton } from './Components/Buttons/NormalButton';
+import { QuoteOfTheDay } from './Components/QouteOfTheDay';
 
 interface IAppState {
   price: number;
@@ -57,6 +58,7 @@ class App extends React.Component<IAppProps, IAppState> {
           title='Change currency'
           onClick={this._toggleCurrency}
         />
+        <QuoteOfTheDay/>
       </div>
     );
   }
