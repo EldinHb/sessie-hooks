@@ -1,5 +1,3 @@
-import { stat } from 'fs';
-import { parse } from 'path';
 import React from 'react';
 
 export const useFetch = <T>(url: string, execute = true) => {

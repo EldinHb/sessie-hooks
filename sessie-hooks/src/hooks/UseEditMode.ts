@@ -6,8 +6,7 @@ export const useEditMode = () => {
     React.useEffect(() => {
         const urlSearchParam = new URLSearchParams(window.location.search);
         const editModeParam = urlSearchParam.get('editmode');
-
-        if (editModeParam === 'true') setEditMode(true);
+        setEditMode(editModeParam === "true");
     }, []);
 
     return editMode;

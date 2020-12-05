@@ -1,10 +1,8 @@
 import React from 'react';
-import {ChangeCurrencyButton} from './components/buttons/ChangeCurrencyButton';
+import {NormalButton} from './components/buttons/NormalButton';
 import './App.css';
 import { useCurrency } from './hooks/UseCurrency';
 import { useEditMode } from './hooks/UseEditMode';
-import { useFetch } from './hooks/UseFetch';
-import { QuoteResponse } from './library/Quotes';
 import { QuoteOfTheDay } from './components/QuoteOfTheDay';
 
 const App = () => {
@@ -14,7 +12,8 @@ const App = () => {
   return (
     <div className="container">
         <p className='unselectable'>{price} {currencyType}</p>
-        <ChangeCurrencyButton
+        <NormalButton
+          title='Change currency'
           onClick={toggleCurrency}
         />
         {

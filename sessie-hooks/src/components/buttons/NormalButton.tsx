@@ -1,7 +1,7 @@
 import React from 'react';
-import './ChangeCurrencyButton.css';
+import './NormalButton.css';
 
-export const ChangeCurrencyButton = (props: buttonProps) => {
+export const NormalButton = (props: buttonProps) => {
     const _onClick = () => {
         if (props.onClick) props.onClick();
     }
@@ -10,7 +10,7 @@ export const ChangeCurrencyButton = (props: buttonProps) => {
         <div
             onClick={_onClick}>
             <div className='button'>
-                <p className='unselectable'>Toggle currency</p>
+                <p className='unselectable'>{props.title}</p>
             </div>
         </div>
     );
@@ -18,4 +18,5 @@ export const ChangeCurrencyButton = (props: buttonProps) => {
 
 export type buttonProps = {
     onClick?: () => void;
+    title: string;
 }

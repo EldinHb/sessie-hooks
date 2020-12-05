@@ -9,13 +9,14 @@ export const QuoteOfTheDay = (props: QuoteOfTheDayProps) => {
         <div>
             {
                 isLoading ? 
-                <p>...{status}</p> :
+                <p>...{status}</p> 
+                :
                 quoteResponse ? 
-                    quoteResponse.contents.quotes.map((x, i) => {
-                        return(<p key={i.toString()}>{x.quote}</p>)
-                    })
-                    :
-                    null
+                quoteResponse.contents.quotes.map((x, i) => {
+                    return(<p key={i.toString()}>{x.quote}</p>)
+                })
+                :
+                null
             }
         </div>
     );
