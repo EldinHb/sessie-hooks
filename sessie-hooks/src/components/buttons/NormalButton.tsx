@@ -1,18 +1,11 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../state/ThemeProvider';
 import './NormalButton.css';
 
 export const NormalButton = (props: buttonProps) => {
-    const {theme} = useContext(ThemeContext);
-
-    const _onClick = () => {
-        if (props.onClick) props.onClick();
-    }
-
     return(
         <div
-            onClick={_onClick}>
-            <div className={`button-${theme}`}>
+            onClick={props.onClick}>
+            <div className={'button ' + props.className}>
                 <p className='unselectable'>{props.title}</p>
             </div>
         </div>
@@ -22,4 +15,5 @@ export const NormalButton = (props: buttonProps) => {
 export type buttonProps = {
     onClick?: () => void;
     title: string;
+    className?: string;
 }
