@@ -7,7 +7,6 @@ import { QuoteOfTheDay } from './Components/QouteOfTheDay';
 interface IAppState {
   price: number;
   currencyType: CurrencyType;
-  editMode: boolean;
 }
 
 interface IAppProps {
@@ -20,13 +19,9 @@ class App extends React.Component<IAppProps, IAppState> {
 
     this._toggleCurrency = this._toggleCurrency.bind(this);
 
-    const urlSearchParam = new URLSearchParams(window.location.search);
-    const editModeParam = urlSearchParam.get('editmode');
-
     this.state = {
       price: 327,
-      currencyType: 'euro',
-      editMode: editModeParam === "true"
+      currencyType: 'euro'
     };
   }
 
