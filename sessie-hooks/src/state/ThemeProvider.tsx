@@ -16,9 +16,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
     const [theme, setTheme] = React.useState<ThemeType>(DefaultValue.theme);
 
     return(
-        <ThemeContext.Provider value={{
-            theme, setTheme            
-        }}>
+        <ThemeContext.Provider value={{theme, setTheme}}>
             {props.children}
         </ThemeContext.Provider>
     );

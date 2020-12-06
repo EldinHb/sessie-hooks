@@ -4,7 +4,7 @@ export const useCurrency = (amount: number) => {
     const [calculatedAmount, setCalculatedAmount] = React.useState(amount);
     const [type, setType] = React.useState<CurrencyType>('euro');
 
-    const _calculate = () => {
+    const toggleCurrency = () => {
         let newAmount: number = 0;
         switch(type) {
             case 'dollar':
@@ -18,10 +18,6 @@ export const useCurrency = (amount: number) => {
                 setType('dollar');
                 return;
         }
-    }
-
-    const toggleCurrency = () => {
-        _calculate();
     }
 
     return [calculatedAmount, type, toggleCurrency] as const;
