@@ -20,7 +20,8 @@ export const useFetch = <T>(url: string, execute = true) => {
             }, 2000);
         }
 
-        asyncTask();
+        if (execute) asyncTask();
+        else setStatus('idle');
     }, []);
 
     return [isLoading, data, status] as const;

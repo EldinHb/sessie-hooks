@@ -1,17 +1,38 @@
-import React from 'react';
-import { MainComponent } from './components/MainComponent';
-import { GlobalAppStateContext } from './state/GlobalAppState';
+import React, { useContext } from 'react';
+import {NormalButton} from './components/buttons/NormalButton';
+import './App.css';
+import { useCurrency } from './hooks/UseCurrency';
+import { QuoteOfTheDay } from './components/QuoteOfTheDay';
+import { ThemeContext } from './state/ThemeProvider';
 
 const App = () => {
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
+  const [price, currencyType, toggleCurrency] = useCurrency(327);
+  const {theme, setTheme} = useContext(ThemeContext);
+
+  const _setTheme = () => {
+    switch(theme) {
+      case 'dark':
+        setTheme('light');
+        return;
+      case 'light':
+        setTheme('dark');
+        return;
+    }
+  }
 
   return (
-      <GlobalAppStateContext.Provider value={{
-        theme,
-        setTheme
-      }}>
-        <MainComponent/>
-      </GlobalAppStateContext.Provider>
+      <div className="container">
+        <p className='unselectable'>{price} {currencyType}</p>
+        <NormalButton
+          title='Change currency'
+          onClick={toggleCurrency}
+        />
+        <NormalButton
+          title={theme}
+          onClick={_setTheme}
+        />
+        <QuoteOfTheDay/>
+      </div>
   );
 }
 
