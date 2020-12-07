@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './NormalButton.css';
 
 export const NormalButton = (props: buttonProps) => {
